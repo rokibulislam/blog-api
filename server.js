@@ -8,6 +8,7 @@ require('dotenv').config();
 // bring routes
 const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/post')
+const commentRoutes = require('./routes/comment')
 
 const app  = express();
 const PORT = process.env.PORT || 4000; 
@@ -32,6 +33,7 @@ app.use(cors());
 //routes middleware
 app.use('/api', authRoutes)
 app.use('/api', postRoutes)
+app.use('/api', commentRoutes)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
